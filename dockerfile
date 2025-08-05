@@ -1,9 +1,9 @@
-FROM accetto/ubuntu-vnc-xfce-g3:latest
+FROM accetto/ubuntu-vnc-xfce:20.04
 
-# Set your preferred password and resolution
+# Optional: customize resolution or password
 ENV VNC_PW=ashu123
 ENV VNC_RESOLUTION=1024x768
 
 EXPOSE 6901
 
-CMD ["/startup.sh"]
+CMD ["/headless/startup.sh", "--wait"]
