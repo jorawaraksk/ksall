@@ -1,9 +1,10 @@
-FROM accetto/ubuntu-vnc-xfce:20.04
+FROM dorowu/ubuntu-desktop-lxde-vnc
 
-# Optional: customize resolution or password
+# Optional: Set password for VNC (browser-based access doesn't need it usually)
 ENV VNC_PW=ashu123
-ENV VNC_RESOLUTION=1024x768
 
-EXPOSE 6901
+# Expose noVNC port (browser GUI runs here)
+EXPOSE 6080
 
-CMD ["/headless/startup.sh", "--wait"]
+# Start everything (GUI + VNC + noVNC)
+CMD ["/startup.sh"]
